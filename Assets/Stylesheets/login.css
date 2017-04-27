@@ -1,17 +1,35 @@
 body {
-    background: linear-gradient(132deg, #5B2F0C, #400C01);
+    background: linear-gradient(to right bottom, #5B2F0C, #400C01);
     background-size: 400% 400%;
-    animation: BackgroundGradient 30s ease infinite;
-}
-h1{
-    color: white;
+    animation: BackgroundGradient 15s ease infinite;
 }
 p{
     color: white;
+}
+.valign-wrapper{
+    height: 75vh;
+}
+*{
+    --google-font-title: 'Pinyon Script', cursive;
+}
+
+.brand-logo {
+	font-family: var(--google-font-title);
+	font-size: 5.8rem;
+}
+h1{
+    color: white;
+    text-shadow: #FFFFFF 1.5px 1.5px 1.5px;
 }
 
 @keyframes BackgroundGradient {
     0% {background-position: 0% 50%;}
     50% {background-position: 100% 50%;}
     100% {background-position: 0% 50%;}
+}
+p a{
+    color: #2BBBAD;
+}
+.icon-white{
+    color: white;
 }
