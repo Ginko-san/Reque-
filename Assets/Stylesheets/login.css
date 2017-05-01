@@ -15,11 +15,11 @@ p{
 
 .brand-logo {
 	font-family: var(--google-font-title);
-	font-size: 5.8rem;
+	font-size: 5.0rem;
 }
 h1{
     color: white;
-    text-shadow: #FFFFFF 1.5px 1.5px 1.5px;
+    text-shadow: #FFFFFF 1.4px 1.4px 1.4px;
 }
 
 @keyframes BackgroundGradient {
