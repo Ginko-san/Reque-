@@ -1,0 +1,24 @@
+* {
+	--google-font-title: 'Pinyon Script', cursive;
+	--font-color-adobe: #F6E8B1;
+	--workplace-color: white;
+}
+
+body {
+	background-image: url(../../Assets/Images/background-image.jpg);
+}
+
+nav .brand-logo {
+	font-family: var(--google-font-title);
+	font-size: 2.8rem;
+}
+
+/*
+.nav-item {
+	font-weight: bold;
+} */
+
+#workplace {
+	margin-top: 2rem;
+	background-color: var(--workplace-color);
+}
