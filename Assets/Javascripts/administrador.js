@@ -10,6 +10,7 @@ miAplicacion.controller('controlador1',['$scope', function($scope){
             {numero: "6" , descripcion: "Desocupada"},
             {numero: "7" , descripcion: "Ocupada"},
             {numero: "8" , descripcion: "Desocupada"},
-            {numero: "9" , descripcion: "Ocupada"},
+            {numero: "9" , descripcion: "Ocupada"}
     ];
-}])
+    }]
+);
