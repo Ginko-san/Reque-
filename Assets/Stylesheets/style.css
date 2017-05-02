@@ -4,21 +4,22 @@
 	--workplace-color: white;
 }
 
-body {
-	background-image: url(../../Assets/Images/background-image.jpg);
-}
-
-nav .brand-logo {
+header .brand-logo {
 	font-family: var(--google-font-title);
-	font-size: 2.8rem;
+	font-size: 2.35rem;
+	padding: 5px 12px;
 }
 
-/*
-.nav-item {
-	font-weight: bold;
-} */
+header nav ul li a img {
+	height: 52px;
+	width: 52px;
+}
 
-#workplace {
-	margin-top: 2rem;
-	background-color: var(--workplace-color);
+.ProfilePicDropDownText{
+	margin-left: 0.5rem;
+}
+
+.displayA {
+	display: -webkit-inline-box;
+	margin: 0.5rem 2rem 0rem 2rem;
 }
