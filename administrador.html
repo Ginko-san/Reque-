@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="admin">
+    <head>
+        <meta charset="utf-8">
+        <title>Home</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+       <link rel="stylesheet" href="Assets/Stylesheets/administrador.css">
+       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet">
+       <script src"Assets/angular.js"> </script>
+    </head>
+    <body>
+        <div ng-controller="controlador1">
+
+            <div class="container" >
+                <div class="row">
+                    <div class=" ng-repeat = " habitacion in habitaciones"">
+                        <div class="col s2 m7">
+                            <div class="card horizontal">
+                                <div class="card-image">
+                                    <h5>Habitación</h5>
+                                    <h3 class="center-align">{{habitacion.numero}} </h3>
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        {{habitacion.descripcion}}
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="#">Ver detalles</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <footer>
+
+    </footer>
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+     <script src="Assets/Javascripts/administrador.js"></script>
+</html>
