@@ -11,7 +11,9 @@
     <body ng-app="clientes">
         <div class="container" ng-controller="controlador1">
             <ul class="collection with-header">
-                <li class="collection-header"><h4>Clientes</h4></li>
+                <li class="collection-header">
+                    <h4>Clientes <a class="secondary-content btn-floating btn-large waves-effect waves-light red right-align"><i class="material-icons">add</i></a></h4>
+                </li>
                 <div ng-repeat = "cliente in listClientes">
                     <li class="collection-item ">
                         <i class="material-icons">perm_identity</i>
