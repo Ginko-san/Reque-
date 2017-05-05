@@ -12,22 +12,25 @@
     <body ng-app="admin">
         <div ng-controller="controlador1">
 
-            <div class="container" >
-                <div class="row">
-                    <a class="right-align btn-floating btn-large waves-effect waves-light red "><i class="material-icons">add</i></a>
-                    <div ng-repeat = "habitacion in habitaciones">
-                        <div class="col s1 m7">
-                            <div class="card horizontal">
-                                <div class="card-image">
-                                    <h5>Habitación</h5>
-                                    <h3 class="center-align">{{habitacion.numero}} </h3>
-                                </div>
-                                <div class="card-stacked">
-                                    <div class="card-content">
-                                        {{habitacion.descripcion}}
+            <div class="container">
+                <div class="contenido">
+                    <h4>Habitaciones <a class="secondary-content btn-floating btn-large waves-effect waves-light red "><i class="material-icons">add</i></a></h4>
+                    
+                    <div class="row">
+                        <div ng-repeat = "habitacion in habitaciones">
+                            <div class="col s1 m6">
+                                <div class="card horizontal">
+                                    <div class="card-image">
+                                        <h5>Habitación</h5>
+                                        <h3 class="center-align">{{habitacion.numero}} </h3>
                                     </div>
-                                    <div class="card-action">
-                                        <a href="#">Ver detalles</a>
+                                    <div class="card-stacked">
+                                        <div class="card-content">
+                                            {{habitacion.descripcion}}
+                                        </div>
+                                        <div class="card-action">
+                                            <a href="#">Ver detalles</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
