@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+                <form>
+                    <br>
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <input placeholder="Cédula" id="id" type="number" class="active validate" required>
+                            <label for="id">Cédula cliente</label>
+                        </div>
+                            <div class="input-field col s4">
+                                <label for="initialDate">Fecha de inicio</label>
+                                <input type="date" id="initialDate" class="datepicker">
+                            </div>
+                            <div class="input-field col s4">
+                                 <input type="date" id="endedDate" class="datepicker">
+                                 <label for="endedDate">Fecha de fin</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <select>
+                                <option value="" disabled selected>Seleccione una habitación</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                            <label>Habitación</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <select>
+                                <option value="" disabled selected>Seleccione un tipo</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Tipo de habitación</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">mode_edit</i>
+                            <textarea id="description" class="materialize-textarea"></textarea>
+                            <label for="description">Comentarios</label>
+                        </div>
+
+                    </div>
+
+
+                    <button class="btn waves-effect waves-light right-align" type="submit" name="action">Enviar
+                       <i class="material-icons right ">send</i>
+                    </button>
+                </form>
+        </div>
+
+    </body>
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src="Assets/Javascripts/addReservacion.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</html>
