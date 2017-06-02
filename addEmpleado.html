@@ -9,24 +9,40 @@
     </head>
     <body>
         <div class="container">
-                <form>
+                <form id="formValidate">
                     <br>
                     <div class="row">
                         <div class="input-field col s4">
-                            <input placeholder="Nombre"  id="name" type="text" class="active validate" required>
-                            <label for="name">Nombre</label>
+                            <input placeholder="Nombre"  id="uname" name="uname" type="text" data-error=".errorTxt1"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="uname-error">
+                            <label for="uname">Nombre</label>
+                            <div class="errorTxt1">
+                                <div id="uname-error" class="error" style="display: block;"></div>
+                            </div>
                         </div>
                         <div class="input-field col s4">
-                            <input placeholder="Primer apellido"  id="lastname1" type="text" class="active validate" required>
+                            <input placeholder="Primer apellido"  id="lastname1" name="lastname1"type="text" data-error=".errorTxt2"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="lastname1-error">
                             <label for="lastname1">Primer apellido</label>
+                            <div class="errorTxt2">
+                                <div id="lastname1-error" class="error" style="display: block;"></div>
+                            </div>
                         </div>
                         <div class="input-field col s4">
-                            <input placeholder="Segundo apellido" id="lastname2" type="text" class="active validate" required>
+                            <input placeholder="Segundo apellido" id="lastname2" name="lastname2"type="text"  data-error=".errorTxt3"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="lastname2-error">
                             <label for="lastname2">Segundo apellido</label>
+                            <div class="errorTxt3">
+                                <div id="lastname2-error" class="error" style="display: block;"></div>
+                            </div>
                         </div>
                         <div class="input-field col s4">
-                            <input placeholder="Cédula" id="id" type="number" class="active validate" required>
+                            <input placeholder="Formato: 101110111" id="id" name="id" type="number"  data-error=".errorTxt4"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="id-error">
                             <label for="id">Cédula</label>
+                            <div class="errorTxt4">
+                                <div id="id-error" class="error" style="display: block;"></div>
+                            </div>
                         </div>
                         <div class="input-field col s4">
                             <input placeholder="Salario" id="salario" type="text" class="active validate" required>
@@ -102,6 +118,12 @@
     <!-- SCRIPTS -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
+
+    <!-- SCRIPTS validacion de datos-->
+    <script src="Assets/Javascripts/jquery.validate.js" charset="utf-8"></script>
+    <script src="Assets/Javascripts/additional-methods.js" charset="utf-8"></script>
+    <!-- SCRIPTS validacion de datos-->
+
     <script src="Assets/Javascripts/addEmpleado.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>

@@ -44,8 +44,7 @@ $().ready(function() {
 			},
             email: {
                 required: true,
-                email:true,
-                nowhitespace: true
+                email:true
             },
             phone: {
 				required: true,
@@ -77,7 +76,7 @@ $().ready(function() {
             id:{
                 required: "Ingrese su identificación",
                 minlength: "Ingrese mínimo 9 carácteres",
-                maxlength: "Ingrese maximo 9 carácteres",
+                maxlength: "Ingrese máximo 9 carácteres",
                 number: "Ingrese solo carácteres numéricos",
                 nowhitespace: "Por favor remueva los espacios en blanco"
             },
@@ -94,19 +93,18 @@ $().ready(function() {
                 equalTo: "Las contraseñas no coinciden"
             },
             email:{
-                required: "Las contraseñas no coinciden",
-                equalTo: "Las contraseñas no coinciden"
+                required: "Ingrese su email",
+                email:"Ingrese un email válido"
             },
             phone:{
-                required: "Ingrese una dirección exacta",
-                minlength: "Ingrese mínimo 15 carácteres",
-
-            },
-            address:{
                 required: "Ingrese un número telefónico",
                 minlength: "Ingrese mínimo 8 carácteres",
                 maxlength: "Ingrese maximo 8 carácteres",
                 nowhitespace: "Por favor remueva los espacios en blanco"
+            },
+            address:{
+                required: "Ingrese una dirección exacta",
+                minlength: "Ingrese mínimo 15 carácteres",
             },
 
         },
