@@ -9,17 +9,27 @@
     </head>
     <body>
         <div class="container">
-                <form>
+                <form id="formValidate">
                     <br>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input placeholder="Nombre"  id="name" type="text" class="active validate" required>
-                            <label for="name">Nombre</label>
+                            <input  id="tipo" name="tipo" type="text" data-error=".errorTxt1"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="tipo-error">
+                            <label for="tipo">Tipo</label>
+                            <div class="errorTxt1">
+                                <div id="tipo-error" class="error" style="display: block;"></div>
+                            </div>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="input-field col s6">
-                            <input placeholder="Descripción" id="description" type="number" class="active validate" required>
+                            <i class="material-icons prefix">mode_edit</i>
+                            <textarea id="description" class="materialize-textarea" name="description" data-error=".errorTxt2"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="description-error"></textarea>
                             <label for="description">Descripción</label>
+                            <div class="errorTxt2">
+                                <div id="description-error" class="error" style="display: block;"></div>
+                            </div>
                         </div>
                     </div>
 
@@ -34,6 +44,13 @@
     <!-- SCRIPTS -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
+
+    <!-- SCRIPTS validacion de datos-->
+    <script src="Assets/Javascripts/jquery.validate.js" charset="utf-8"></script>
+    <script src="Assets/Javascripts/additional-methods.js" charset="utf-8"></script>
+    <!-- SCRIPTS validacion de datos-->
+
+    <script src="Assets/Javascripts/addTipoHabitacion.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </html>

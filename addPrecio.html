@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="container">
-                <form>
+                <form id="formValidate">
                     <br>
                     <div class="row">
                         <div class="input-field col s6">
@@ -23,19 +23,34 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s6">
-                            <input placeholder="Monto"  id="amount" type="text" class="active validate" required>
+                        <div class="input-field col s6 ">
+                            <input placeholder="Formato: 0000.00" id="amount" name="amount" type="number"  data-error=".errorTxt4"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="amount-error">
                             <label for="amount">Monto</label>
+                            <div class="errorTxt4">
+                                <div id="amount-error" class="error" style="display: block;"></div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
+                            <input type="date" id="initialDate" class="datepicker" name="initialDate"  data-error=".errorTxt6"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="initialDate-error">
                             <label for="initialDate">Fecha de inicio</label>
-                            <input type="date" id="initialDate" class="datepicker">
+                            <div class="errorTxt6">
+                                <div id="initialDate-error" class="error" style="display: block;"></div>
+                            </div>
+
+
                         </div>
                         <div class="input-field col s6">
-                             <input type="date" id="endedDate" class="datepicker">
+                             <input type="date" id="endedDate" class="datepicker" name="endedDate"  data-error=".errorTxt5"
+                             aria-required="true" area-incalid="true" class="error" aria-describedby="endedDate-error">
                              <label for="endedDate">Fecha de fin</label>
+                             <div class="errorTxt5">
+                                 <div id="endedDate-error" class="error" style="display: block;"></div>
+                             </div>
                         </div>
                     </div>
 
@@ -47,11 +62,16 @@
         </div>
 
     </body>
-
     <!-- SCRIPTS -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
-   <script src="Assets/Javascripts/addPrecio.js" charset="utf-8"></script>
+
+    <!-- SCRIPTS validacion de datos-->
+    <script src="Assets/Javascripts/jquery.validate.js" charset="utf-8"></script>
+    <script src="Assets/Javascripts/additional-methods.js" charset="utf-8"></script>
+    <!-- SCRIPTS validacion de datos-->
+
+    <script src="Assets/Javascripts/addPrecio.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </html>

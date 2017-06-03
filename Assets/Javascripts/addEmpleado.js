@@ -7,7 +7,7 @@
          && /d/.test(value)
          && /[a-z]/i.test(value);
 
-     },'Ingrese una contraseña que incluya mínimo 6 carácteres, y al menos número \'.')
+     },'Ingrese una contraseña que incluya mínimo 6 carácteres, y al menos número \.')
 
      $("#formValidate").validate({
          rules: {
@@ -54,11 +54,7 @@
                  maxlength: 8,
                  nowhitespace: true,
                  number: true
-             },
-             address: {
- 				required: true,
- 				minlength: 15
-             },
+             }
 
          },
          //For custom messages
@@ -103,12 +99,7 @@
                  minlength: "Ingrese mínimo 8 carácteres",
                  maxlength: "Ingrese maximo 8 carácteres",
                  nowhitespace: "Por favor remueva los espacios en blanco"
-             },
-             address:{
-                 required: "Ingrese una dirección exacta",
-                 minlength: "Ingrese mínimo 15 carácteres",
-             },
-
+             }
          },
          errorElement : 'div',
          errorPlacement: function(error, element) {
