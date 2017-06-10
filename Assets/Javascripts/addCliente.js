@@ -1,11 +1,19 @@
 $().ready(function() {
     $.validator.addMethod('strongPassword',function(value,element){
         return this.optional(element)
-        || value.length >= 6
-        && /d/.test(value)
-        && /[a-z]/i.test(value);
+       || value.length >= 6
+       && /\d/.test(value)
+       && /[a-z]/i.test(value);
 
-    },'Ingrese una contraseña que incluya mínimo 6 carácteres, y al menos número \'.')
+   },'Ingrese una contraseña que incluya mínimo 6 carácteres, y al menos un número \'.')
+
+    $.validator.addMethod('cedula',function(value,element){
+        return /[0-9]{1}[-][0-9]{4}[-][0-9]{4}/.test(value);
+    },'Ingrese una cédula correcta formato: 0-0000-0000')
+
+    $.validator.addMethod('tel',function(value,element){
+        return /[0-9]{4}[-][0-9]{4}/.test(value);
+    },'Ingrese un teléfono correcto formato: 0000-0000')
 
     $("#formValidate").validate({
         rules: {
@@ -23,10 +31,9 @@ $().ready(function() {
             },
             id: {
                 required: true,
-                minlength: 9,
                 nowhitespace: true,
-                maxlength: 9,
-                number: true
+                cedula: true,
+                maxlength: 11
             },
             gender:"required",
             userName: {
@@ -48,10 +55,10 @@ $().ready(function() {
             },
             phone: {
 				required: true,
-				minlength: 8,
-                maxlength: 8,
+				minlength: 9,
+                maxlength: 9,
                 nowhitespace: true,
-                number: true
+                tel: true
             },
             address: {
 				required: true,
@@ -75,9 +82,7 @@ $().ready(function() {
             },
             id:{
                 required: "Ingrese su identificación",
-                minlength: "Ingrese mínimo 9 carácteres",
-                maxlength: "Ingrese máximo 9 carácteres",
-                number: "Ingrese solo carácteres numéricos",
+                maxlength: "Ingrese formato: 0-0000-0000",
                 nowhitespace: "Por favor remueva los espacios en blanco"
             },
             userName:{
@@ -98,8 +103,8 @@ $().ready(function() {
             },
             phone:{
                 required: "Ingrese un número telefónico",
-                minlength: "Ingrese mínimo 8 carácteres",
-                maxlength: "Ingrese maximo 8 carácteres",
+                minlength: "Ingrese formato: 0000-0000",
+                maxlength: "Ingrese formato: 0000-0000",
                 nowhitespace: "Por favor remueva los espacios en blanco"
             },
             address:{

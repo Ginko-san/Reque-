@@ -1,30 +1,80 @@
+var miAplicacion = angular.module('selectores', []).config(function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+    // Allow same origin resource loads.
+    'self',
+    // Allow loading from our assets domain. **.
+    'https://provincial-web-services.herokuapp.com/get_provincias**'
+    ]);
+})
+
+miAplicacion.controller('ctrlProvincias',['$scope','$http', function($scope,$http){
+    $http.jsonp("https://provincial-web-services.herokuapp.com/get_provincias")
+    .then(function(response) {
+        console.log(response.data);
+    });
+
+    $scope.provincias = [ "Alois" , "Gardenzio", "Carlos" ];
+}])
+miAplicacion.controller('ctrlCantones',['$scope','$http', function($scope,$http){
+
+}])
+miAplicacion.controller('ctrlDistritos',['$scope','$http', function($scope,$http){
+
+}])
+
  $().ready(function() {
      $('select').material_select();
 
+     //https://provincial-web-services.herokuapp.com/get_provincias?jsoncallback=?
+
+     /*
+    $.getJSON("https://provincial-web-services.herokuapp.com/get_provincias?jsoncallback=?", function(data){
+        console.log('succes');
+    });
+
+    $.ajax({
+           url: 'https://provincial-web-services.herokuapp.com/get_provincias',
+           dataType: 'jsonp',
+           success: function(json) {
+
+               console.log(json);
+           }
+       });
+       */
+
+
+
+     $.validator.addMethod('cedula',function(value,element){
+         return /[0-9]{1}[-][0-9]{3}[-][0-9]{6}/.test(value);
+     },'Ingrese una cédula correcta formato: 0-000-000000')
+
+     $.validator.addMethod('tel',function(value,element){
+         return /[0-9]{4}[-][0-9]{4}/.test(value);
+     },'Ingrese un teléfono correcto formato: 0000-0000')
+
      $("#formValidate").validate({
          rules: {
-             uname: {
+             nombre: {
                  required: true,
                  minlength: 2
              },
-             id: {
+             cedula_j: {
                  required: true,
-                 minlength: 9,
                  nowhitespace: true,
-                 maxlength: 9,
-                 number: true
+                 cedula: true,
+                 maxlength: 12
              },
              phone: {
-                required: true,
-                minlength: 8,
-                 maxlength: 8,
+ 				required: true,
+ 				minlength: 9,
+                 maxlength: 9,
                  nowhitespace: true,
-                 number: true
+                 tel: true
              },
-             description: {
+             razon_social: {
  				required: true
             },
-            address: {
+            direccionexacta: {
 				required: true,
 				minlength: 15
             },
@@ -32,27 +82,25 @@
          //For custom messages
          messages: {
 
-             uname:{
+             nombre:{
                  required: "Ingrese su nombre",
                  minlength: "Ingrese mínimo 2 carácteres"
              },
-             id:{
-                 required: "Ingrese su identificación",
-                 minlength: "Ingrese mínimo 9 carácteres",
-                 maxlength: "Ingrese máximo 9 carácteres",
-                 number: "Ingrese solo carácteres numéricos",
+             cedula_j:{
+                 required: "Ingrese una cédula jurídica",
+                 maxlength: "Ingrese formato: 0-000-000000",
                  nowhitespace: "Por favor remueva los espacios en blanco"
              },
              phone:{
                  required: "Ingrese un número telefónico",
-                 minlength: "Ingrese mínimo 8 carácteres",
-                 maxlength: "Ingrese maximo 8 carácteres",
+                 minlength: "Ingrese formato: 0000-0000",
+                 maxlength: "Ingrese formato: 0000-0000",
                  nowhitespace: "Por favor remueva los espacios en blanco"
              },
-             description:{
+             razon_social:{
                  required: "Ingrese una descripción "
              },
-             address:{
+             direccionexacta:{
                  required: "Ingrese una dirección exacta",
                  minlength: "Ingrese mínimo 15 carácteres",
              },

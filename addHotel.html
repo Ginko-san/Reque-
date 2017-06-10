@@ -6,42 +6,41 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
        <link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet">
+       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     </head>
     <body>
         <div class="container">
-                <form id="formValidate">
+                <form id="formValidate" action="https://provincial-web-services.herokuapp.com/hotel" method="POST">
                     <br>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input  id="uname" name="uname" type="text" data-error=".errorTxt1"
-                            aria-required="true" area-incalid="true" class="error" aria-describedby="uname-error">
-                            <label for="uname">Nombre</label>
+                            <input  id="nombre" name="nombre" type="text" data-error=".errorTxt1"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="nombre-error">
+                            <label for="nombre">Nombre</label>
                             <div class="errorTxt1">
-                                <div id="uname-error" class="error" style="display: block;"></div>
+                                <div id="nombre-error" class="error" style="display: block;"></div>
                             </div>
                         </div>
 
                         <div class="input-field col s6">
-                            <input placeholder="Formato: 101110111" id="id" name="id" type="number"  data-error=".errorTxt4"
-                            aria-required="true" area-incalid="true" class="error" aria-describedby="id-error">
-                            <label for="id">Cédula Juridica</label>
+                            <input id="cedula_j" name="cedula_j" type="text"  data-error=".errorTxt4"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="cedula_j-error">
+                            <label for="cedula_j">Cédula Juridica</label>
                             <div class="errorTxt4">
-                                <div id="id-error" class="error" style="display: block;"></div>
+                                <div id="cedula_j-error" class="error" style="display: block;"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" ng-app="selectores" >
                         <div class="input-field col s4">
-                            <select>
+                            <select ng-controller="ctrlProvincias">
                                 <option value="" disabled selected>Seleccione una provincia</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                                <option value="1" ng-repeat = "provincia in provincias">{{provincia}}</option>
                             </select>
                             <label>Provincia</label>
                         </div>
                         <div class="input-field col s4">
-                            <select>
+                            <select disabled ng-controller="ctrlCantones">
                                 <option value="" disabled selected>Seleccione un cantón</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
@@ -50,7 +49,7 @@
                             <label>Cantón</label>
                         </div>
                         <div class="input-field col s4">
-                            <select>
+                            <select disabled ng-controller="ctrlDistritos">
                                 <option value="" disabled selected>Seleccione un distrito</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
@@ -58,13 +57,16 @@
                             </select>
                             <label>Distrito</label>
                         </div>
+                        <div class="hide">
+                            iddistrito:<input type="text" name="iddistrito" value="1">
+                        </div>
 
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">phone</i>
-                            <input id="phone" type="number" name="phone" data-error=".errorTxt9"
+                            <input id="phone" type="text"  data-error=".errorTxt9"
                             aria-required="true" area-incalid="true" class="error" aria-describedby="phone-error">
                             <label for="phone">Teléfono</label>
                             <div class="errorTxt9">
@@ -76,23 +78,26 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">mode_edit</i>
-                            <textarea id="address" class="materialize-textarea" name="address" data-error=".errorTxt10"
-                            aria-required="true" area-incalid="true" class="error" aria-describedby="address-error"></textarea>
-                            <label for="address">Dirección</label>
+                            <textarea id="direccionexacta" class="materialize-textarea" name="direccionexacta" data-error=".errorTxt10"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="direccionexacta-error"></textarea>
+                            <label for="direccionexacta">Dirección</label>
                             <div class="errorTxt10">
-                                <div id="address-error" class="error" style="display: block;"></div>
+                                <div id="direccionexacta-error" class="error" style="display: block;"></div>
                             </div>
 
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">mode_edit</i>
-                            <textarea id="description" class="materialize-textarea" name="description" data-error=".errorTxt2"
-                            aria-required="true" area-incalid="true" class="error" aria-describedby="description-error"></textarea>
-                            <label for="description">Descripción</label>
+                            <textarea id="razon_social" class="materialize-textarea" name="razon_social" data-error=".errorTxt2"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="razon_social-error"></textarea>
+                            <label for="razon_social">Razón social</label>
                             <div class="errorTxt2">
-                                <div id="description-error" class="error" style="display: block;"></div>
+                                <div id="razon_social-error" class="error" style="display: block;"></div>
                             </div>
                         </div>
+                    </div>
+                    <div class="hide">
+                        _method:<input type="text" name="_method" value="Create">
                     </div>
 
                     <button class="btn waves-effect waves-light right-align" type="submit" name="action">Enviar
@@ -103,6 +108,7 @@
 
     </body>
     <!-- SCRIPTS -->
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
 
