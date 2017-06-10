@@ -6,50 +6,30 @@ var miAplicacion = angular.module('selectores', []).config(function($sceDelegate
     'https://provincial-web-services.herokuapp.com/get_provincias**'
     ]);
 })
-
 miAplicacion.controller('ctrlProvincias', function($scope,$http){
-    /*$http.jsonp("https://provincial-web-services.herokuapp.com/get_provincias")
-    .then(function(response) {
-        console.log(response.data);
-    });
-
-    $scope.provincias = [ "Alois" , "Gardenzio", "Carlos" ];
-    */
-    $http.get("https://jsonplaceholder.typicode.com/posts")
-        .then(function(data){
-            console.log(data.data);
+    //$scope.provincias = [ "Alois" , "Gardenzio", "Carlos" ];
+    $scope.posts = [];
+    $http.get("https://provincial-web-services.herokuapp.com/get_provincias").then(function(data){
+            console.log(data);
+            $scope.posts = data;
         });
+
+    /*$.getJSON("https://provincial-web-services.herokuapp.com/get_provincias", function (data) {
+      console.log(data);
+      $scope.posts = data;
+    });*/
 
 });
 miAplicacion.controller('ctrlCantones',['$scope','$http', function($scope,$http){
 
-}])
+}]);
 miAplicacion.controller('ctrlDistritos',['$scope','$http', function($scope,$http){
 
-}])
+}]);
+
 
  $().ready(function() {
      $('select').material_select();
-
-     //https://provincial-web-services.herokuapp.com/get_provincias?jsoncallback=?
-
-     /*
-    $.getJSON("https://provincial-web-services.herokuapp.com/get_provincias?jsoncallback=?", function(data){
-        console.log('succes');
-    });
-
-    $.ajax({
-           url: 'https://provincial-web-services.herokuapp.com/get_provincias',
-           dataType: 'jsonp',
-           success: function(json) {
-
-               console.log(json);
-           }
-       });
-       */
-
-
-
      $.validator.addMethod('cedula',function(value,element){
          return /[0-9]{1}[-][0-9]{3}[-][0-9]{6}/.test(value);
      },'Ingrese una cédula correcta formato: 0-000-000000')
