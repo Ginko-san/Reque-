@@ -7,14 +7,20 @@ var miAplicacion = angular.module('selectores', []).config(function($sceDelegate
     ]);
 })
 
-miAplicacion.controller('ctrlProvincias',['$scope','$http', function($scope,$http){
-    $http.jsonp("https://provincial-web-services.herokuapp.com/get_provincias")
+miAplicacion.controller('ctrlProvincias', function($scope,$http){
+    /*$http.jsonp("https://provincial-web-services.herokuapp.com/get_provincias")
     .then(function(response) {
         console.log(response.data);
     });
 
     $scope.provincias = [ "Alois" , "Gardenzio", "Carlos" ];
-}])
+    */
+    $http.get("https://jsonplaceholder.typicode.com/posts")
+        .then(function(data){
+            console.log(data.data);
+        });
+
+});
 miAplicacion.controller('ctrlCantones',['$scope','$http', function($scope,$http){
 
 }])
