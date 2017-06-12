@@ -36,37 +36,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" ng-app="selectores" >
-                        <div class="input-field col s4">
-                            <select ng-controller="ctrlProvincias">
+                    <div class="row" >
+                        <div class="input-field col s4" >
+                            <select id="selectProvincias">
                                 <option value="" disabled selected>Seleccione una provincia</option>
-
-                                <option ng-repeat="post in posts">{{post.nombreprovincia}}</option>
                             </select>
-
                             <label>Provincia</label>
                         </div>
                         <div class="input-field col s4">
-                            <select disabled ng-controller="ctrlCantones">
+                            <select  id="selectCantones">
                                 <option value="" disabled selected>Seleccione un cantón</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
                             </select>
                             <label>Cantón</label>
                         </div>
                         <div class="input-field col s4">
-                            <select disabled ng-controller="ctrlDistritos">
+                            <select id="iddistrito" name="iddistrito" value="1">
                                 <option value="" disabled selected>Seleccione un distrito</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
                             </select>
                             <label>Distrito</label>
                         </div>
-                        <div class="hide">
-                            iddistrito:<input type="text" name="iddistrito" value="1">
-                        </div>
+                        
 
                     </div>
 

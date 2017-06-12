@@ -1,35 +1,53 @@
-var miAplicacion = angular.module('selectores', []).config(function($sceDelegateProvider) {
-    $sceDelegateProvider.resourceUrlWhitelist([
-    // Allow same origin resource loads.
-    'self',
-    // Allow loading from our assets domain. **.
-    'https://provincial-web-services.herokuapp.com/get_provincias**'
-    ]);
-})
-miAplicacion.controller('ctrlProvincias', function($scope,$http){
-    //$scope.provincias = [ "Alois" , "Gardenzio", "Carlos" ];
-    $scope.posts = [];
-    $http.get("https://provincial-web-services.herokuapp.com/get_provincias").then(function(data){
-            console.log(data);
-            $scope.posts = data;
-        });
-
-    /*$.getJSON("https://provincial-web-services.herokuapp.com/get_provincias", function (data) {
-      console.log(data);
-      $scope.posts = data;
-    });*/
-
-});
-miAplicacion.controller('ctrlCantones',['$scope','$http', function($scope,$http){
-
-}]);
-miAplicacion.controller('ctrlDistritos',['$scope','$http', function($scope,$http){
-
-}]);
-
-
  $().ready(function() {
-     $('select').material_select();
+     var idProvincia = 1;
+    $('#selectCantones').prop('disabled', true);
+    $('#iddistrito').prop('disabled', true);
+    $.getJSON("https://provincial-web-services.herokuapp.com/get_provincias").then(function(response){
+        var i;
+        for (i = 0; i < response.length; ++i) {
+            $('#selectProvincias').append('<option value="'+response[i].idprovincia+'" >'+response[i].nombreprovincia+'</option>');
+        }
+        $('#selectProvincias').material_select();
+    });
+
+    $("#selectProvincias").change(function() {
+        $( "#selectProvincias option:selected" ).each(function() {
+              idProvincia =$(this).val();
+              $('#selectCantones').prop('disabled', false);
+              $('#selectCantones').children('option:not(:first)').remove();
+              $.getJSON("https://provincial-web-services.herokuapp.com/get_cantones?provinciaID="+idProvincia).then(function(response){
+                  var i;
+                  for (i = 0; i < response.length; ++i) {
+                      $('#selectCantones').append('<option value="'+response[i].idcanton+'" >'+response[i].nombrecanton+'</option>');
+                  }
+                  $('#selectCantones').material_select();
+              });
+        });
+        $('#iddistrito').prop('disabled', true);
+        $('#iddistrito').children('option:not(:first)').remove();
+    });
+
+    $("#selectCantones").change(function() {
+        $( "#selectCantones option:selected" ).each(function() {
+              var idCanton =$(this).val();
+              $('#iddistrito').prop('disabled', false);
+              $('#iddistrito').children('option:not(:first)').remove();
+              $.getJSON("https://provincial-web-services.herokuapp.com/get_distritos?provinciaID="+idProvincia+"&cantonID="+idCanton).then(function(response){
+                  var i;
+                  for (i = 0; i < response.length; ++i) {
+                      $('#iddistrito').append('<option value="'+response[i].codconjunt+'" >'+response[i].nombredistrito+'</option>');
+                  }
+                  $('#iddistrito').material_select();
+              });
+        });
+    });
+    $("#iddistrito").change(function() {
+        $( "#iddistrito option:selected" ).each(function() {
+              var idCanton =$(this).val();
+              $('#iddistrito').prop('value', idCanton);
+        });
+    });
+
      $.validator.addMethod('cedula',function(value,element){
          return /[0-9]{1}[-][0-9]{3}[-][0-9]{6}/.test(value);
      },'Ingrese una cédula correcta formato: 0-000-000000')
