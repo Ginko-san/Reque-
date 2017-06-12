@@ -8,27 +8,15 @@
        <link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet">
        <link rel="stylesheet" href="Assets/Stylesheets/listaClientes.css">
     </head>
-    <body ng-app="clientes">
-        <div class="container" ng-controller="controlador1">
-            <ul class="collection with-header">
+    <body>
+        <div class="container" >
+            <ul class="collection with-header" id="clientes">
                 <li class="collection-header">
                     <h4>Clientes <a class="secondary-content btn-floating btn-large waves-effect waves-light red right-align"><i class="material-icons">add</i></a></h4>
                 </li>
-                <div ng-repeat = "cliente in listClientes">
-                    <li class="collection-item ">
-                        <i class="material-icons">perm_identity</i>
-                        <h6>{{cliente.nombre}}
-                            <a class="secondary-content waves-effect waves-light btn">
-                                <i class="Tiny material-icons">delete</i>
-                            </a>
-                            <a class="secondary-content waves-effect waves-light btn">
-                                <i class="Tiny material-icons">mode_edit</i>
-                            </a>
-                            <div class="secondary-content "> Cédula: {{cliente.cedula}} Teléfono: {{cliente.telefono}}</div>
-                        </h6>
-                        <hr>
-                    </li>
-                </div>
+
+
+
             </ul>
         </div>
 

@@ -1,5 +1,21 @@
  $().ready(function() {
-     $('select').material_select();
+
+     $.getJSON("https://provincial-web-services.herokuapp.com/hotel").then(function(response){
+         var i;
+         for (i = 0; i < response.length; ++i) {
+             $('select').append('<option value="'+response[i].cedula_j+'" >'+response[i].nombre+'</option>');
+         }
+         $('select').material_select();
+     });
+     $("select").change(function() {
+         $( "select option:selected" ).each(function() {
+               var idHotel =$(this).val();
+               $('select').prop('value', idHotel);
+         });
+     });
+
+
+
 
      $("#formValidate").validate({
          rules: {
@@ -8,7 +24,10 @@
              },
              description: {
  				required: true
-             }
+            },
+            cedula_j: {
+                required: true
+           }
          },
          //For custom messages
          messages: {

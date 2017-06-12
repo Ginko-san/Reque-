@@ -9,24 +9,21 @@
     </head>
     <body>
         <div class="container">
-                <form id="formValidate">
+                <form id="formValidate" action="https://provincial-web-services.herokuapp.com/habitacion" method="POST">
                     <br>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input  id="numero" name="numero" type="number" data-error=".errorTxt1"
-                            aria-required="true" area-incalid="true" class="error" aria-describedby="numero-error">
-                            <label for="numero">Número</label>
+                            <input  id="num_habitacion" name="num_habitacion" type="number" data-error=".errorTxt1"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="num_habitacion-error">
+                            <label for="num_habitacion">Número</label>
                             <div class="errorTxt1">
-                                <div id="numero-error" class="error" style="display: block;"></div>
+                                <div id="num_habitacion-error" class="error" style="display: block;"></div>
                             </div>
                         </div>
 
                         <div class="input-field col s4">
-                            <select>
-                                <option value="" disabled selected>Seleccione un hotel</option>
-                                <option value="1">Hotel provincial</option>
-                                <option value="2">Hotel provincial #2</option>
-                                <option value="3">Hotel provincial #3</option>
+                            <select id="cedula_j" name="cedula_j" value="">
+                                <option value="default" disabled selected>Seleccione un hotel</option>
                             </select>
                             <label>Hotel</label>
                         </div>
@@ -34,15 +31,17 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">mode_edit</i>
-                            <textarea id="description" class="materialize-textarea" name="description" data-error=".errorTxt2"
-                            aria-required="true" area-incalid="true" class="error" aria-describedby="description-error"></textarea>
-                            <label for="description">Descripción</label>
+                            <textarea id="descripcion" class="materialize-textarea" name="descripcion" data-error=".errorTxt2"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="descripcion-error"></textarea>
+                            <label for="descripcion">Descripción</label>
                             <div class="errorTxt2">
-                                <div id="description-error" class="error" style="display: block;"></div>
+                                <div id="descripcion-error" class="error" style="display: block;"></div>
                             </div>
                         </div>
                     </div>
-
+                    <div class="hide">
+                        _method:<input type="text" name="_method" value="Create">
+                    </div>
 
 
                     <button class="btn waves-effect waves-light right-align" type="submit" name="action">Enviar

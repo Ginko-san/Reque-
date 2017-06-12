@@ -4,18 +4,18 @@ $().ready(function() {
     $.validator.addMethod('cedula',function(value,element){
         return /[0-9]{1}[-][0-9]{3}[-][0-9]{6}/.test(value);
     },'Ingrese una cédula correcta formato: 0-000-000000')
-    
+
     $.validator.addMethod('tel',function(value,element){
         return /[0-9]{4}[-][0-9]{4}/.test(value);
     },'Ingrese un teléfono correcto formato: 0000-0000')
 
     $("#formValidate").validate({
         rules: {
-            uname: {
+            nombre: {
                 required: true,
                 minlength: 2
             },
-            id: {
+            cedula_j: {
                 required: true,
                 nowhitespace: true,
                 cedula: true,
@@ -25,7 +25,7 @@ $().ready(function() {
                 required: true,
                 email:true
             },
-            phone: {
+            telefono: {
 				required: true,
 				minlength: 9,
                 maxlength: 9,
@@ -35,16 +35,16 @@ $().ready(function() {
         },
         //For custom messages
         messages: {
-            uname:{
+            nombre:{
                 required: "Ingrese su nombre",
                 minlength: "Ingrese mínimo 2 carácteres"
             },
-            id:{
+            cedula_j:{
                 required: "Ingrese una cédula jurídica",
                 maxlength: "Ingrese formato: 0-000-000000",
                 nowhitespace: "Por favor remueva los espacios en blanco"
             },
-            phone:{
+            telefono:{
                 required: "Ingrese un número telefónico",
                 minlength: "Ingrese formato: 0000-0000",
                 maxlength: "Ingrese formato: 0000-0000",

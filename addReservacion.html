@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="container">
-                <form id="formValidate">
+                <form id="formValidate" id="formValidate" action="https://provincial-web-services.herokuapp.com/reserva" method="POST">
                     <br>
                     <div class="row">
                         <div class="input-field col s4">
@@ -72,6 +72,9 @@
                                 <div id="description-error" class="error" style="display: block;"></div>
                             </div>
                         </div>
+                    </div>
+                    <div class="hide">
+                        _method:<input type="text" name="_method" value="Create">
                     </div>
 
                     <button class="btn waves-effect waves-light right-align" type="submit" name="action">Enviar

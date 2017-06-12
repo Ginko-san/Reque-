@@ -9,31 +9,41 @@
     </head>
     <body>
         <div class="container">
-                <form id="formValidate">
+                <form id="formValidate" action="https://provincial-web-services.herokuapp.com/tipo_s" method="POST">
                     <br>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input  id="tipo" name="tipo" type="text" data-error=".errorTxt1"
-                            aria-required="true" area-incalid="true" class="error" aria-describedby="tipo-error">
-                            <label for="tipo">Tipo</label>
+                            <input  id="num_tipo" name="num_tipo" type="number" data-error=".errorTxt1"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="num_tipo-error">
+                            <label for="num_tipo">Número Tipo</label>
                             <div class="errorTxt1">
-                                <div id="tipo-error" class="error" style="display: block;"></div>
+                                <div id="num_tipo-error" class="error" style="display: block;"></div>
+                            </div>
+                        </div>
+                        <div class="input-field col s6">
+                            <input  id="nombre" name="nombre" type="text" data-error=".errorTxt1"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="nombre-error">
+                            <label for="nombre">Nombre Tipo</label>
+                            <div class="errorTxt1">
+                                <div id="nombre-error" class="error" style="display: block;"></div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">mode_edit</i>
-                            <textarea id="description" class="materialize-textarea" name="description" data-error=".errorTxt2"
-                            aria-required="true" area-incalid="true" class="error" aria-describedby="description-error"></textarea>
-                            <label for="description">Descripción</label>
+                            <textarea id="descripcion" class="materialize-textarea" name="descripcion" data-error=".errorTxt2"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="descripcion-error"></textarea>
+                            <label for="descripcion">Descripción</label>
                             <div class="errorTxt2">
-                                <div id="description-error" class="error" style="display: block;"></div>
+                                <div id="descripcion-error" class="error" style="display: block;"></div>
                             </div>
                         </div>
                     </div>
 
-
+                    <div class="hide">
+                        _method:<input type="text" name="_method" value="Create">
+                    </div>  
                     <button class="btn waves-effect waves-light right-align" type="submit" name="action">Enviar
                        <i class="material-icons right ">send</i>
                     </button>

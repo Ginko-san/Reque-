@@ -3,7 +3,10 @@ $().ready(function() {
 
     $("#formValidate").validate({
         rules: {
-            tipo: {
+            num_tipo: {
+                required: true
+            },
+            nombre: {
                 required: true
             },
             description: {
@@ -13,8 +16,11 @@ $().ready(function() {
         //For custom messages
         messages: {
 
-            tipo:{
-                required: "Ingrese un tipo de habitación"
+            num_tipo:{
+                required: "Ingrese un número tipo "
+            },
+            nombre:{
+                required: "Ingrese un nombre tipo"
             },
             description:{
                 required: "Ingrese una descripción "

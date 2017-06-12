@@ -1,4 +1,27 @@
 $().ready(function() {
+
+    $.getJSON("https://provincial-web-services.herokuapp.com/empresa").then(function(response){
+        var i;
+        for (i = 0; i < response.length; ++i) {
+            $('select').append('<option value="'+response[i].nombre+'" >'+response[i].nombre+'</option>');
+        }
+        $('select').material_select();
+    });
+    $("select").change(function() {
+        $( "select option:selected" ).each(function() {
+              var nombreEMpresa =$(this).val();
+              $('select').prop('value', nombreEMpresa);
+        });
+    });
+
+    $("#info").change(function() {
+        if(this.checked) {
+            $('#info').prop('value', "TRUE");
+        }else {
+            $('#info').prop('value', "FALSE");
+        }
+    });
+
     $.validator.addMethod('strongPassword',function(value,element){
         return this.optional(element)
        || value.length >= 6
@@ -17,19 +40,19 @@ $().ready(function() {
 
     $("#formValidate").validate({
         rules: {
-            uname: {
+            nombre: {
                 required: true,
                 minlength: 3
             },
-            lastname1: {
+            apellido1: {
                 required: true,
                 minlength: 3
             },
-            lastname2: {
+            apellido2: {
                 required: true,
                 minlength: 3
             },
-            id: {
+            cedula: {
                 required: true,
                 nowhitespace: true,
                 cedula: true,
@@ -49,11 +72,11 @@ $().ready(function() {
 				required: true,
 				equalTo: "#password"
 			},
-            email: {
+            correo: {
                 required: true,
                 email:true
             },
-            phone: {
+            telefono: {
 				required: true,
 				minlength: 9,
                 maxlength: 9,
@@ -68,19 +91,19 @@ $().ready(function() {
         },
         //For custom messages
         messages: {
-            uname:{
+            nombre:{
                 required: "Ingrese su nombre",
                 minlength: "Ingrese mínimo 3 carácteres"
             },
-            lastname1:{
+            apellido1:{
                 required: "Ingrese su primer apellido",
                 minlength: "Ingrese mínimo 3 carácteres"
             },
-            lastname2:{
+            apellido2:{
                 required: "Ingrese su segundo apellido",
                 minlength: "Ingrese mínimo 3 carácteres"
             },
-            id:{
+            cedula:{
                 required: "Ingrese su identificación",
                 maxlength: "Ingrese formato: 0-0000-0000",
                 nowhitespace: "Por favor remueva los espacios en blanco"
@@ -97,11 +120,11 @@ $().ready(function() {
                 required: "Las contraseñas no coinciden",
                 equalTo: "Las contraseñas no coinciden"
             },
-            email:{
+            correo:{
                 required: "Ingrese su email",
                 email:"Ingrese un email válido"
             },
-            phone:{
+            telefono:{
                 required: "Ingrese un número telefónico",
                 minlength: "Ingrese formato: 0000-0000",
                 maxlength: "Ingrese formato: 0000-0000",

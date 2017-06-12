@@ -1,16 +1,10 @@
-var miAplicacion = angular.module('clientes', [])
+ $().ready(function() {
 
-miAplicacion.controller('controlador1',['$scope', function($scope){
-    $scope.listClientes=[
-            {nombre: "Acevedo Manríquez María Mireya" , cedula: "207550396", telefono: "70345874"},
-            {nombre: "Acevedo Mejía Enrique" , cedula: "207550396", telefono: "70345874"},
-            {nombre: "Acevedo Ruiz Carolina" , cedula: "207550396", telefono: "70345874"},
-            {nombre: "Alejo Guerrero Víctor Hugo" , cedula: "207550396", telefono: "70345874"},
-            {nombre: "Angulo Garfias Raúl" , cedula: "207550396", telefono: "70345874"},
-            {nombre: "Buenfil Díaz Iván" , cedula: "207550396", telefono: "70345874"},
-            {nombre: "Carrizal González Fidel" , cedula: "207550396", telefono: "70345874"},
-            {nombre: "Chacón Murillo María del Rocío" , cedula: "207550396", telefono: "70345874"},
-            {nombre: "Domínguez Velasco Miguel Ángel" , cedula: "207550396", telefono: "70345874"}
-    ];
-    }]
-);
+     $.getJSON("https://provincial-web-services.herokuapp.com/cliente").then(function(response){
+         var i;
+         for (i = 0; i < response.length; ++i) {
+             console.log(response[i]);
+             $('#clientes').append('<li class="collection-item "> <i class="material-icons">perm_identity</i><h6>'response[i].nombrecompleto'<a class="secondary-content waves-effect waves-light btn"> <i class="Tiny material-icons">delete</i> </a> <a class="secondary-content waves-effect waves-light btn"><i class="Tiny material-icons">mode_edit</i>  </a> <div class="secondary-content "> Cédula: 'response[i].cedula' Teléfono: 'response[i].telefonoe'</div> </h6><hr></li>');
+         }
+     });
+ });
