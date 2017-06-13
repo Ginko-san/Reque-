@@ -1,5 +1,6 @@
+ var eliminarId = 0;
  $().ready(function() {
-     $('.modal').modal({
+     $('#modal1').modal({
          dismissible: false, // Modal can be dismissed by clicking outside of the modal
          opacity: .5, // Opacity of modal background
 
@@ -9,6 +10,15 @@
        'margin-left':'5%',
        height:'800px'
    });
+   $('#modalDelete').modal();
+   $('#md1_YesBtn').click(function(){
+       $.post( "https://provincial-web-services.herokuapp.com/empresa", { codigo: eliminarId,_method :"Delete" } ).then(function(){
+          updateLista();
+       });
+       eliminarId = 0;
+       $('#modalDelete' ).modal('close');
+   });
+
      updateLista();
  });
 
@@ -17,7 +27,7 @@ function updateLista(){
     $.getJSON("https://provincial-web-services.herokuapp.com/empresa").then(function(response){
         var i;
         for (i = 0; i < response.length; ++i) {
-            $('#empresas').append('<li class="collection-item"><i class="material-icons">perm_identity</i><h6 id="'+response[i].cedula_j+'" onClick="funcShow(this.id)">'+response[i].nombre+'<a class="secondary-content waves-effect waves-light btn" id="'+response[i].cedula_j+'" onClick="funcDelete(this.id)">  <i class="Tiny material-icons">delete</i>  </a><a class="secondary-content waves-effect waves-light btn" id="'+response[i].cedula_j+'"onClick="funcUpdate(this.id)"> <i class="Tiny material-icons">mode_edit</i> </a><div class="secondary-content "> Cédula: '+response[i].cedula_j+' Teléfono: '+response[i].telefonos+' </div> </h6>  </li>');
+            $('#empresas').append('<li class="collection-item"><i class="material-icons">perm_identity</i><h6 id="'+response[i].idempresa+'" onClick="funcShow(this.id)">'+response[i].nombre+'<a class="secondary-content waves-effect waves-light btn" id="'+response[i].idempresa+'" onClick="funcDelete(this.id)">  <i class="Tiny material-icons">delete</i>  </a><a class="secondary-content waves-effect waves-light btn" id="'+response[i].idempresa+'"onClick="funcUpdate(this.id)"> <i class="Tiny material-icons">mode_edit</i> </a><div class="secondary-content "> Cédula: '+response[i].cedula_j+' Teléfono: '+response[i].telefonos+' </div> </h6>  </li>');
         }
     });
 
@@ -29,18 +39,16 @@ function reloadModal(){
 
  var validar = true;
  function funcDelete(id){
-     console.log(id+ " "+"delete");
-     validar = false;
-     updateLista();
+     eliminarId = id;
+     $('#modalDelete' ).modal('open');
  };
  function funcUpdate(id){
-     console.log(id+ " "+"update");
+
      validar = false;
-     updateLista();
  };
  function funcShow(id){
      if (validar) {
-         console.log(id + " "+"show");
+
      }
      validar = true;
  };

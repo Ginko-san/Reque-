@@ -1,15 +1,24 @@
+var eliminarId = 0;
  $().ready(function() {
-     $('.modal').modal({
+     $('#modal1').modal({
          dismissible: false, // Modal can be dismissed by clicking outside of the modal
          opacity: .5, // Opacity of modal background
 
-         complete: function() { updateLista();; } // Callback for Modal close
+         complete: function() { updateLista();} // Callback for Modal close
      }).css({
        width: '90%',
        'margin-left':'5%',
        height:'800px'
-   });
-     updateLista();
+    });
+    $('#modalDelete').modal();
+    $('#md1_YesBtn').click(function(){
+        $.post( "https://provincial-web-services.herokuapp.com/cliente", { cedula: eliminarId,_method :"Delete" } ).then(function(){
+           updateLista();
+        });
+        eliminarId = 0;
+        $('#modalDelete' ).modal('close');
+    });
+    updateLista();
  });
 
 function updateLista(){
@@ -30,19 +39,18 @@ function reloadModal(){
 
  var validar = true;
  function funcDelete(id){
-     console.log(id+ " "+"delete");
+     eliminarId = id;
+     $('#modalDelete' ).modal('open');
+
      validar = false;
-     $.post( "https://provincial-web-services.herokuapp.com/cliente", { cedula: id,_method :"Delete" } );
-     updateLista();
+
  };
  function funcUpdate(id){
-     console.log(id+ " "+"update");
      validar = false;
-     updateLista();
  };
  function funcShow(id){
      if (validar) {
-         console.log(id + " "+"show");
+
      }
      validar = true;
  };
