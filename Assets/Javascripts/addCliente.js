@@ -19,7 +19,6 @@ $().ready(function() {
         if(this.checked) {
             $('#info').prop('value', "1");
         }
-        console.log($('#info').val()+"  "+"jajajaja");
     });
 
     $.validator.addMethod('strongPassword',function(value,element){
@@ -59,7 +58,7 @@ $().ready(function() {
                 maxlength: 11
             },
             gender:"required",
-            userName: {
+            useru: {
                 required: true,
                 minlength: 5,
                 nowhitespace: true
@@ -108,12 +107,12 @@ $().ready(function() {
                 maxlength: "Ingrese formato: 0-0000-0000",
                 nowhitespace: "Por favor remueva los espacios en blanco"
             },
-            userName:{
+            useru:{
                 required: "Ingrese un nombre de usuario",
                 minlength: "Ingrese mínimo 5 carácteres",
                 nowhitespace: "Por favor remueva los espacios en blanco"
             },
-            password:{
+            pass:{
                 required: "Ingrese una contraseña"
             },
             cpassword:{
