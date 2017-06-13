@@ -1,5 +1,5 @@
 $().ready(function() {
-
+    $('#info').prop('value', "1");
     $.getJSON("https://provincial-web-services.herokuapp.com/empresa").then(function(response){
         var i;
         for (i = 0; i < response.length; ++i) {
@@ -14,12 +14,12 @@ $().ready(function() {
         });
     });
 
-    $("#info").change(function() {
+    $("#checkbox").change(function() {
+        $('#info').prop('value', "0");
         if(this.checked) {
-            $('#info').prop('value', "TRUE");
-        }else {
-            $('#info').prop('value', "FALSE");
+            $('#info').prop('value', "1");
         }
+        console.log($('#info').val()+"  "+"jajajaja");
     });
 
     $.validator.addMethod('strongPassword',function(value,element){

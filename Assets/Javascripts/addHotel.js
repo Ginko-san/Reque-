@@ -48,6 +48,10 @@
         });
     });
 
+    $(".btn").click(function(){
+        location.reload();
+    });
+
      $.validator.addMethod('cedula',function(value,element){
          return /[0-9]{1}[-][0-9]{3}[-][0-9]{6}/.test(value);
      },'Ingrese una cédula correcta formato: 0-000-000000')

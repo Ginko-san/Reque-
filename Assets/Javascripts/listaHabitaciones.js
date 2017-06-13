@@ -7,22 +7,21 @@
      }).css({
        width: '90%',
        'margin-left':'5%',
-       height:'800px'
+       height:'850px'
    });
      updateLista();
  });
 
 function updateLista(){
-    $('#clientes').children('li:not(:first)').remove();
-    $.getJSON("https://provincial-web-services.herokuapp.com/cliente").then(function(response){
+    $('#habitaciones').children('li:not(:first)').remove();
+    $.getJSON("https://provincial-web-services.herokuapp.com/habitacion").then(function(response){
         var i;
         for (i = 0; i < response.length; ++i) {
-            $('#clientes').append('<li class="collection-item"><i class="material-icons">perm_identity</i><h6 id="'+response[i].cedula+'" onClick="funcShow(this.id)">'+response[i].nombrecompleto+'<a class="secondary-content waves-effect waves-light btn" id="'+response[i].cedula+'" onClick="funcDelete(this.id)">  <i class="Tiny material-icons">delete</i>  </a><a class="secondary-content waves-effect waves-light btn" id="'+response[i].cedula+'"onClick="funcUpdate(this.id)"> <i class="Tiny material-icons">mode_edit</i> </a><div class="secondary-content "> Cédula: '+response[i].cedula+' Teléfono: '+response[i].telefonos+' </div> </h6>  </li>');
+            $('#habitaciones').append('<li class="collection-item"><i class="material-icons">store</i><h6 id="'+response[i].num_habitacion+'" onClick="funcShow(this.id)">'+response[i].num_habitacion+'<a class="secondary-content waves-effect waves-light btn" id="'+response[i].num_habitacion+'" onClick="funcDelete(this.id)">  <i class="Tiny material-icons">delete</i>  </a><a class="secondary-content waves-effect waves-light btn" id="'+response[i].num_habitacion+'"onClick="funcUpdate(this.id)"> <i class="Tiny material-icons">mode_edit</i> </a><div class="secondary-content "> Descrión: '+response[i].descripcion+' Hotel: '+response[i].cedula_j+' </div> </h6>  </li>');
         }
     });
 
 };
-
 function reloadModal(){
     var iframe = document.getElementById("FrameId");
     iframe.src = iframe.src;
@@ -32,7 +31,6 @@ function reloadModal(){
  function funcDelete(id){
      console.log(id+ " "+"delete");
      validar = false;
-     $.post( "https://provincial-web-services.herokuapp.com/cliente", { cedula: id,_method :"Delete" } );
      updateLista();
  };
  function funcUpdate(id){

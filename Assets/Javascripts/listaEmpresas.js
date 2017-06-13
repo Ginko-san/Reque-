@@ -13,16 +13,15 @@
  });
 
 function updateLista(){
-    $('#clientes').children('li:not(:first)').remove();
-    $.getJSON("https://provincial-web-services.herokuapp.com/cliente").then(function(response){
+    $('#empresas').children('li:not(:first)').remove();
+    $.getJSON("https://provincial-web-services.herokuapp.com/empresa").then(function(response){
         var i;
         for (i = 0; i < response.length; ++i) {
-            $('#clientes').append('<li class="collection-item"><i class="material-icons">perm_identity</i><h6 id="'+response[i].cedula+'" onClick="funcShow(this.id)">'+response[i].nombrecompleto+'<a class="secondary-content waves-effect waves-light btn" id="'+response[i].cedula+'" onClick="funcDelete(this.id)">  <i class="Tiny material-icons">delete</i>  </a><a class="secondary-content waves-effect waves-light btn" id="'+response[i].cedula+'"onClick="funcUpdate(this.id)"> <i class="Tiny material-icons">mode_edit</i> </a><div class="secondary-content "> Cédula: '+response[i].cedula+' Teléfono: '+response[i].telefonos+' </div> </h6>  </li>');
+            $('#empresas').append('<li class="collection-item"><i class="material-icons">perm_identity</i><h6 id="'+response[i].cedula_j+'" onClick="funcShow(this.id)">'+response[i].nombre+'<a class="secondary-content waves-effect waves-light btn" id="'+response[i].cedula_j+'" onClick="funcDelete(this.id)">  <i class="Tiny material-icons">delete</i>  </a><a class="secondary-content waves-effect waves-light btn" id="'+response[i].cedula_j+'"onClick="funcUpdate(this.id)"> <i class="Tiny material-icons">mode_edit</i> </a><div class="secondary-content "> Cédula: '+response[i].cedula_j+' Teléfono: '+response[i].telefonos+' </div> </h6>  </li>');
         }
     });
 
 };
-
 function reloadModal(){
     var iframe = document.getElementById("FrameId");
     iframe.src = iframe.src;
@@ -32,7 +31,6 @@ function reloadModal(){
  function funcDelete(id){
      console.log(id+ " "+"delete");
      validar = false;
-     $.post( "https://provincial-web-services.herokuapp.com/cliente", { cedula: id,_method :"Delete" } );
      updateLista();
  };
  function funcUpdate(id){
