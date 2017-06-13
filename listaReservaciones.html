@@ -12,11 +12,30 @@
         <div class="container" >
             <ul class="collection with-header" id="reservasiones">
                 <li class="collection-header">
-                    <h4>Reservas <a class="secondary-content btn-floating btn-large waves-effect waves-light red right-align" ><i class="material-icons">add</i></a></h4>
+                    <h4>Reservas <a class="secondary-content btn-floating btn-large waves-effect waves-light red right-align" href="#modal1"><i class="material-icons">add</i></a></h4>
                 </li>
             </ul>
         </div>
-
+        <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                  <h4>Agregar Reserva</h4>
+                  <iframe id="FrameId" width="100%" height="550px" src="addReservacion.html" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="i modal-action modal-close waves-effect waves-green btn-flat" onclick="reloadModal()" >Salir</a>
+                </div>
+          </div>
+        <div id="modalDelete" class="modal">
+          <div class="modal-content">
+              <h4>Por favor Confirmar</h4>
+              <p>¿Seguro de eliminar esta Reserva?</p>
+          </div>
+          <div class="modal-footer">
+              <a href="#" class="waves-effect waves-red btn-flat" onclick="$('#modalDelete').modal('close'); return false;">Cancelar</a>
+              <a href="#" class="waves-effect waves-green btn-flat" id="md1_YesBtn">Si</a>
+         </div>
+        </div>
     </body>
 
 

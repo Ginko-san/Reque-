@@ -1,5 +1,25 @@
  $().ready(function() {
-     $('select').material_select();
+
+     $.getJSON("https://provincial-web-services.herokuapp.com/cliente").then(function(response){
+         var i;
+         for (i = 0; i < response.length; ++i) {
+             $('#codigo').append('<option value="'+response[i].codigo+'" >'+response[i].nombrecompleto+"  "+response[i].cedula+'</option>');
+         }
+         $('#codigo').material_select();
+     });
+
+     $.getJSON("https://provincial-web-services.herokuapp.com/habitacion").then(function(response){
+         var i;
+         for (i = 0; i < response.length; ++i) {
+             $('#habitaciones').append('<option value="'+response[i].num_habitacion+'" >'+response[i].descripcion+'</option>');
+         }
+         $('#habitaciones').material_select();
+     });
+
+
+     $.validator.addMethod('cedula',function(value,element){
+         return /[0-9]{1}[-][0-9]{4}[-][0-9]{4}/.test(value);
+     },'Ingrese una cédula correcta formato: 0-0000-0000')
 
      $('.datepicker').pickadate({
        selectMonths: true, // Creates a dropdown to control month
@@ -9,7 +29,7 @@
 
      $("#formValidate").validate({
          rules: {
-             id: {
+             cedula: {
                  required: true,
                  minlength: 9,
                  nowhitespace: true,
