@@ -35,28 +35,14 @@ var numHabitaciones = [];
      });
 
      $("#habitaciones1").change(function() {
-
-        habitacionesDisponibles();
+         if ($("#fecha_salida").val() !== "") {
+             if ($("#fecha_entrada").val() !== "") {
+                 habitacionesDisponibles();
+            };
+         };
      });
 
-     function habitacionesDisponibles(){
-             var i =1;
-             $("#habitaciones1").each(function() {
-                 var habitacion = $("#habitaciones1 option:eq("+i+")").val();
-                   $.post("https://provincial-web-services.herokuapp.com/verificar_habitacion?habitacion="+habitacion+"&fecha_I="+$("#fecha_entrada").val()+"&fecha_F="+$("#fecha_salida").val()+"&_method=TwoDate" )
-                   .then(function(response){
-                       if (response[0].verificarroomdates === "t") {
-                           /*console.log("desabilidatos");
-                           $("#habitaciones1 option:eq("+i+")").prop('disabled', true);
-                           console.log($("#habitaciones1 option:eq("+i+")").val());
-                           $("#habitaciones1 option:eq("+i+")").prop('selected', false);
-                           console.log($("#habitaciones1 option:eq("+i+")"));*/
-                       }
-                   });
-                   ++i;
-             });
-             getHabitaciones();
-     };
+
 
      $.validator.addMethod('cedula',function(value,element){
          return /[0-9]{1}[-][0-9]{4}[-][0-9]{4}/.test(value);
@@ -121,6 +107,28 @@ var numHabitaciones = [];
          }
       });
  });
+ function habitacionesDisponibles(){
+         var i =1;
+         $("#habitaciones1 option").each(function() {
+
+             if ($("#habitaciones1 option").length  !==i) {
+                 var habitacion = $("#habitaciones1 option:eq("+i+")").val();
+
+                      $.post("https://provincial-web-services.herokuapp.com/verificar_habitacion?habitacion="+habitacion+"&fecha_I="+$("#fecha_entrada").val()+"&fecha_F="+$("#fecha_salida").val()+"&_method=TwoDate" )
+                      .then(function(response){
+                       if (response[0].verificarroomdates === "t") {
+                           $("#habitaciones1 option:eq("+i+")").prop("selected", false);
+                           $('#habitaciones1').material_select();
+                           $("#habitaciones1 option:eq("+i+")").prop("disabled", true);
+                           $('#habitaciones1').material_select();
+                       }
+                    });
+
+             }
+             ++i;
+         });
+         getHabitaciones();
+ };
 
  function getHabitaciones(){
      numHabitaciones =  $("#habitaciones1").val();
@@ -129,7 +137,6 @@ var numHabitaciones = [];
           numHabitaciones[i] = parseInt( numHabitaciones[i] );
           ++i;
      });
-     console.log(numHabitaciones);
      $("#habitaciones").prop('value',"["+numHabitaciones+"]");
 
  };
