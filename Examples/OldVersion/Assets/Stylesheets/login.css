@@ -1,8 +1,13 @@
-body {
-    background: linear-gradient(132deg, #5B2F0C, #400C01);
-    background-size: 400% 400%;
-    animation: BackgroundGradient 30s ease infinite;
+*{
+	--color1: #148F77;
+	--color2: #0E6251;
 }
+
+body {
+    /*animation: bg 1.5s infinite alternate;*/
+    background-image: url(../Images/background.jpg);
+}
+
 h1{
     color: white;
 }
@@ -10,8 +15,20 @@ p{
     color: white;
 }
 
-@keyframes BackgroundGradient {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+@keyframes bg {
+    from {  background-color: var(--color1); }
+    to { background-color: var(--color2); }
+}
+
+@keyframes hue {
+    from {      -webkit-filter: hue-rotate(0deg); }
+    to {  -webkit-filter: hue-rotate(-360deg); }
+}
+
+.title {
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 30s infinite linear;
 }

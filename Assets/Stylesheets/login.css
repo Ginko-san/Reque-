@@ -1,35 +1,34 @@
+*{
+	--color1: #148F77;
+	--color2: #0E6251;
+}
+
 body {
-    background: linear-gradient(to right bottom, #5B2F0C, #400C01);
-    background-size: 400% 400%;
-    animation: BackgroundGradient 15s ease infinite;
+    /*animation: bg 1.5s infinite alternate;*/
+    background-image: url(../Images/background.jpg);
+}
+
+h1{
+    color: white;
 }
 p{
     color: white;
 }
-.valign-wrapper{
-    height: 75vh;
-}
-*{
-    --google-font-title: 'Pinyon Script', cursive;
+
+@keyframes bg {
+    from {  background-color: var(--color1); }
+    to { background-color: var(--color2); }
 }
 
-.brand-logo {
-	font-family: var(--google-font-title);
-	font-size: 5.0rem;
-}
-h1{
-    color: white;
-    text-shadow: #FFFFFF 1.4px 1.4px 1.4px;
+@keyframes hue {
+    from {      -webkit-filter: hue-rotate(0deg); }
+    to {  -webkit-filter: hue-rotate(-360deg); }
 }
 
-@keyframes BackgroundGradient {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-p a{
-    color: #2BBBAD;
-}
-.icon-white{
-    color: white;
+.title {
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 30s infinite linear;
 }
