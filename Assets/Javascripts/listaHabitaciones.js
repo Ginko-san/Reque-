@@ -1,7 +1,7 @@
 var eliminarId = 0;
  $().ready(function() {
      $('#modal1').modal({
-         dismissible: false, // Modal can be dismissed by clicking outside of the modal
+         dismissible: true, // Modal can be dismissed by clicking outside of the modal
          opacity: .5, // Opacity of modal background
 
          complete: function() { updateLista(); } // Callback for Modal close
@@ -9,7 +9,7 @@ var eliminarId = 0;
        width: '90%',
        'margin-left':'5%',
        height:'850px'
-   });
+    });
 
        $('#modalDelete').modal();
        $('#md1_YesBtn').click(function(){
@@ -17,7 +17,7 @@ var eliminarId = 0;
               updateLista();
            });
            eliminarId = 0;
-           $('#modalDelete' ).modal('close');
+           $('#modalDelete').modal('close');
        });
 
      updateLista();
@@ -41,7 +41,8 @@ function reloadModal(){
  var validar = true;
  function funcDelete(id){
      eliminarId = id;
-     $('#modalDelete' ).modal('open');
+     $('#modalDelete').modal();
+     $('#modalDelete').modal('open');
      validar = false;
  };
  function funcUpdate(id){

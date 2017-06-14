@@ -1,7 +1,7 @@
  var eliminarId = 0;
  $().ready(function() {
      $('#modal1').modal({
-         dismissible: false, // Modal can be dismissed by clicking outside of the modal
+         dismissible: true, // Modal can be dismissed by clicking outside of the modal
          opacity: .5, // Opacity of modal background
 
          complete: function() { updateLista();; } // Callback for Modal close
