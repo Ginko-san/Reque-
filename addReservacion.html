@@ -12,37 +12,40 @@
                 <form id="formValidate" id="formValidate" action="https://provincial-web-services.herokuapp.com/reserva" method="POST">
                     <br>
                     <div class="row">
-                        <div class="input-field col s4">
-                            <input  id="cedula" name="cedula" type="number"  data-error=".errorTxt4"
+                        <!--<div class="input-field col s4">
+                            <input  id="cedula" name="cedula" type="text"  data-error=".errorTxt4"
                             aria-required="true" area-incalid="true" class="error" aria-describedby="cedula-error">
                             <label for="cedula">Cédula</label>
                             <div class="errorTxt4">
                                 <div id="cedula-error" class="error" style="display: block;"></div>
                             </div>
                         </div>
-
-                        <div class="input-field col s4">
-                            <input type="date" id="initialDate" class="datepicker" name="initialDate"  data-error=".errorTxt6"
-                            aria-required="true" area-incalid="true" class="error" aria-describedby="initialDate-error">
-                            <label for="initialDate">Fecha de inicio</label>
+                        -->
+                        <div class="input-field col s6">
+                            <input type="date" id="fecha_entrada" class="datepicker" name="fecha_entrada"  data-error=".errorTxt6"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="fecha_entrada-error">
+                            <label for="fecha_entrada">Fecha de inicio</label>
                             <div class="errorTxt6">
-                                <div id="initialDate-error" class="error" style="display: block;"></div>
+                                <div id="fecha_entrada-error" class="error" style="display: block;"></div>
                             </div>
 
 
                         </div>
-                        <div class="input-field col s4">
-                             <input type="date" id="endedDate" class="datepicker" name="endedDate"  data-error=".errorTxt5"
-                             aria-required="true" area-incalid="true" class="error" aria-describedby="endedDate-error">
-                             <label for="endedDate">Fecha de fin</label>
+                        <div class="input-field col s6">
+                             <input type="date" id="fecha_salida" class="datepicker" name="fecha_salida"  data-error=".errorTxt5"
+                             aria-required="true" area-incalid="true" class="error" aria-describedby="fecha_salida-error">
+                             <label for="fecha_salida">Fecha de salida</label>
                              <div class="errorTxt5">
-                                 <div id="endedDate-error" class="error" style="display: block;"></div>
+                                 <div id="fecha_salida-error" class="error" style="display: block;"></div>
                              </div>
                         </div>
-                        <div class="input-field col s6">
-                            <select multiple id="habitaciones" >
-                                <option value="" disabled selected>Seleccione una habitación</option>
 
+                        <input type="hidden" id="habitaciones" name="habitaciones" value="">
+
+
+                        <div class="input-field col s6">
+                            <select multiple id="habitaciones1"  >
+                                <option value="" disabled selected>Seleccione habitaciones</option>
                             </select>
                             <label>Habitación</label>
                         </div>
@@ -58,11 +61,11 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">mode_edit</i>
-                            <textarea id="description" class="materialize-textarea" name="description" data-error=".errorTxt10"
-                            aria-required="true" area-incalid="true" class="error" aria-describedby="description-error"></textarea>
-                            <label for="description">Comentarios</label>
+                            <textarea id="comentario" class="materialize-textarea" name="comentario" data-error=".errorTxt10"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="comentario-error"></textarea>
+                            <label for="comentario">Comentarios</label>
                             <div class="errorTxt10">
-                                <div id="description-error" class="error" style="display: block;"></div>
+                                <div id="comentario-error" class="error" style="display: block;"></div>
                             </div>
                         </div>
                     </div>
@@ -82,6 +85,7 @@
     crossorigin="anonymous"></script>
 
     <!-- SCRIPTS validacion de datos-->
+    <script src="Assets/Javascripts/moment.js" charset="utf-8"></script>
     <script src="Assets/Javascripts/jquery.validate.js" charset="utf-8"></script>
     <script src="Assets/Javascripts/additional-methods.js" charset="utf-8"></script>
     <!-- SCRIPTS validacion de datos-->
