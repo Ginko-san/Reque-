@@ -10,49 +10,50 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
     </head>
     <body>
-        <div class="valign-wrapper" >
-            <div class="container">
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s6 offset-s3 center-align">
-                                <h1 class="brand-logo title">Hotel Provincial</h1>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6 offset-s3">
-                                <i class="material-icons prefix icon-white">account_circle</i>
-                                <input id="username" type="text" class="validate">
-                                <label for="username">Username</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6 offset-s3">
-                                <i class="material-icons prefix icon-white">lock</i>
-                              <input id="password" type="password" class="validate">
-                              <label for="password">Password</label>
-                            </div>
-                         </div>
-                         <div class="row">
-                             <div class="input-field col s3 offset-s7">
-                              <p>No registered? <a href="#">Register</a></p>
-                             </div>
-                         </div>
-                         <div class="row">
-                             <div class="input-field col s2 offset-s5 center-align">
-                              <a  class="btn waves-effect waves-brown"  href="#">Login</a>
-                             </div>
-                         </div>
-
-                    </form>
-                </div>
+      <div class="valign-wrapper" >
+        <div class="container">
+          <div class="row">
+            <div class="row">
+              <div class="input-field col s6 offset-s3 center-align">
+                <h1 class="brand-logo title">Hotel Provincial</h1>
+              </div>
             </div>
+
+            <form action="https://provincial-web-services.herokuapp.com/usuario" id="loginForm">
+              <br>
+              <div class="row">
+                <div class="input-field col s6 offset-s3">
+                  <i class="material-icons prefix icon-white">account_circle</i>
+                  <input id="userName" name="userName" type="text" class="validate">
+                  <label for="userName">Username</label>
+                </div>
+
+                <div class="input-field col s6 offset-s3">
+                  <i class="material-icons prefix icon-white">lock</i>
+                  <input id="password" name="password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+
+                <div class="input-field col s3 offset-s7">
+                  <p>No registered? <a href="#">Register</a></p>
+                </div>
+             </div>
+
+              <div class="input-field col s2 offset-s5 center-align">
+                <button class="btn waves-effect waves-brown right-align" type="submit">Login
+                  <i class="material-icons right ">send</i>
+                </button>
+              </div>  
+            </form>
+          </div>
         </div>
+      </div>
     </body>
     <footer>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+         <script type="text/javascript" src="Assets/Javascripts/login.js"></script>
 
 
 

@@ -1,4 +1,4 @@
-$().ready(function() {
+$(document).ready(function() {
     $('#info').prop('value', "1");
     $.getJSON("https://provincial-web-services.herokuapp.com/empresa").then(function(response){
         var i;
