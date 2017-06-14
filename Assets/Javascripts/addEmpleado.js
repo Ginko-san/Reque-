@@ -14,9 +14,9 @@
          });
      });*/
      $("#checkbox").change(function() {
-         $('#categoria').prop('value', "0");
+         $('#tipo').prop('value', "B");
          if(this.checked) {
-             $('#categoria').prop('value', "1");
+             $('#tipo').prop('value', "A");
          }
      });
      $.validator.addMethod('strongPassword',function(value,element){

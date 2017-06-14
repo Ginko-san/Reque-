@@ -13,11 +13,11 @@
                     <br>
                     <div class="row">
                         <div class="input-field col s4">
-                            <input placeholder="Formato: 101110111" id="id" name="id" type="number"  data-error=".errorTxt4"
-                            aria-required="true" area-incalid="true" class="error" aria-describedby="id-error">
-                            <label for="id">Cédula</label>
+                            <input  id="cedula" name="cedula" type="number"  data-error=".errorTxt4"
+                            aria-required="true" area-incalid="true" class="error" aria-describedby="cedula-error">
+                            <label for="cedula">Cédula</label>
                             <div class="errorTxt4">
-                                <div id="id-error" class="error" style="display: block;"></div>
+                                <div id="cedula-error" class="error" style="display: block;"></div>
                             </div>
                         </div>
 
@@ -40,25 +40,18 @@
                              </div>
                         </div>
                         <div class="input-field col s6">
-                            <select>
+                            <select multiple id="habitaciones" >
                                 <option value="" disabled selected>Seleccione una habitación</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
+
                             </select>
                             <label>Habitación</label>
                         </div>
                         <div class="input-field col s6">
-                            <select>
-                                <option value="" disabled selected>Seleccione un tipo</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                            <select id="codigo" name="codigo" value="">
+                                <option value="" disabled selected>Seleccione un cliente</option>
+
                             </select>
-                            <label>Tipo de habitación</label>
+                            <label>Cliente</label>
                         </div>
                     </div>
 
