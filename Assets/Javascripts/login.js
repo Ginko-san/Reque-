@@ -16,10 +16,10 @@ $(document).ready(function() {
  		posting.done( function(data) {
  			console.log(data);
  			if (data.tipo == 0) {
-				window.location.href = 'http://www.salchi.com/login.html';
+				window.location.href = '/login.html';
 			}
 			else {
-				window.location.href = 'http://www.salchi.com/index.html';
+				window.location.href = '/index.html';
 			}
  		});
 	});
