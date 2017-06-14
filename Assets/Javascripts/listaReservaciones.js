@@ -12,6 +12,7 @@
    });
    $('#modalDelete').modal();
    $('#md1_YesBtn').click(function(){
+       console.log("id/servide:" + eliminarId );
        $.post( "https://provincial-web-services.herokuapp.com/reserva", { num_reservacion: eliminarId,_method :"Delete" } ).then(function(){
           updateLista();
        });
